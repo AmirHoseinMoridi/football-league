@@ -32,10 +32,8 @@ public class Contract extends BaseEntity {
 
 
     @ManyToOne
-    @Column(nullable = false)
     Team team;
 
     @ManyToOne
-    @Column(nullable = false)
     Person person;
 }

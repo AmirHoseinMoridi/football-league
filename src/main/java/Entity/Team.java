@@ -25,7 +25,6 @@ public class Team extends BaseEntity {
     String name;
 
     @ManyToOne
-    @Column(nullable = false)
     City city;
 
 }

@@ -7,6 +7,7 @@ import Entity.Team;
 import Repository.Match.MatchRepository;
 import Service.Match.MatchService;
 
+import java.time.Year;
 import java.util.List;
 
 public class MatchServiceImpl
@@ -19,6 +20,11 @@ public class MatchServiceImpl
     @Override
     public List<Match> findByTeam(Team team) {
         return repository.findByTeam(team);
+    }
+
+    @Override
+    public Match findMustGoalsInDerby(Year year) {
+        return repository.findMustGoalsInDerby(year);
     }
 
     @Override

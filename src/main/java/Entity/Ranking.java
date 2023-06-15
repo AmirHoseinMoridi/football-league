@@ -18,21 +18,20 @@ import java.time.Year;
 @NoArgsConstructor
 
 @Entity
-public class Standing extends BaseEntity {
+public class Ranking extends BaseEntity {
     public static final String TEAM = "team";
     public static final String YEAR = "year";
     public static final String TOTAL_SCORE = "totalScore";
 
 
     @ManyToOne
-    @Column(nullable = false)
     Team team;
 
     @Column(nullable = false)
     Year year;
 
 
-    int totalScore = 0;
+    Integer totalScore = 0;
 
     public void addTotalScore(int score){
         totalScore += score;

@@ -21,11 +21,9 @@ public class Goal extends BaseEntity {
     public static final String MATCH = "match";
 
     @ManyToOne
-    @Column(nullable = false)
     Player player;
 
     @ManyToOne
-    @Column(nullable = false)
     Match match;
 
 }

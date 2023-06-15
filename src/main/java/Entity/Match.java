@@ -23,20 +23,20 @@ public class Match extends BaseEntity {
     public static final String HOST = "host";
     public static final String GUESTS_GOALS = "guestsGoals";
     public static final String HOSTS_GOALS = "hostsGoals";
+    public static final String YEAR = "year";
 
     @ManyToOne
-    @Column(nullable = false)
     Team guest;
 
     @ManyToOne
-    @Column(nullable = false)
     Team host;
 
     Year year;
-    int guestsGoals = 0;
+    Integer guestsGoals = 0;
 
 
-    int hostsGoals = 0;
+    Integer hostsGoals = 0;
+
 
     public void addGuestsGoals(){
         this.guestsGoals++;

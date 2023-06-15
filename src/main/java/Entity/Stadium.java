@@ -24,10 +24,9 @@ public class Stadium extends BaseEntity {
     @Column(nullable = false)
     String name;
 
-    int capacity;
+    Integer capacity;
 
 
     @ManyToOne
-    @Column(nullable = false)
     City city;
 }
