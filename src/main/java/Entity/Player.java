@@ -17,6 +17,7 @@ import lombok.experimental.FieldDefaults;
 public class Player extends Person {
     public static final String TEAM = "team";
 
+
     @ManyToOne
     Team team;
 }

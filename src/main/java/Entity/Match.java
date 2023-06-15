@@ -1,6 +1,7 @@
 package Entity;
 
 import Base.Entity.BaseEntity;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import lombok.*;
@@ -22,13 +23,17 @@ public class Match extends BaseEntity {
     public static final String HOSTS_GOALS = "hostsGoals";
 
     @ManyToOne
+    @Column(nullable = false)
     Team guest;
 
     @ManyToOne
+    @Column(nullable = false)
     Team host;
 
+    @Column(nullable = false)
     int guestsGoals;
 
+    @Column(nullable = false)
     int hostsGoals;
 
 

@@ -1,6 +1,7 @@
 package Entity;
 
 import Base.Entity.BaseEntity;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import lombok.*;
@@ -19,10 +20,14 @@ public class Stadium extends BaseEntity {
     public static final String NAME = "name";
     public static final String CAPACITY = "capacity";
     public static final String CITY = "city";
+
+    @Column(nullable = false)
     String name;
 
     int capacity;
 
+
     @ManyToOne
+    @Column(nullable = false)
     City city;
 }

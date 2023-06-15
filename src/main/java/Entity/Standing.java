@@ -1,6 +1,7 @@
 package Entity;
 
 import Base.Entity.BaseEntity;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import lombok.*;
@@ -24,10 +25,13 @@ public class Standing extends BaseEntity {
 
 
     @ManyToOne
+    @Column(nullable = false)
     Team team;
 
+    @Column(nullable = false)
     Year year;
 
+    @Column(nullable = false)
     int totalScore;
 
 }
