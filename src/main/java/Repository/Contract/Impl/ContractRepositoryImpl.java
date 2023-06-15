@@ -87,7 +87,7 @@ public class ContractRepositoryImpl
     public List<Contract> findHigherPrice() {
         //
         String hql = """
-                select c from Contract c order by c.price
+                select c from Contract c order by c.price desc 
                 """;
         TypedQuery<Contract> typedQuery = em.createQuery(hql, this.getEntityClass());
 
@@ -97,10 +97,10 @@ public class ContractRepositoryImpl
     @Override
     public List<Contract> findHigherPrice(Year year) {
         String hql = """
-                select c from Contract c where c.year = :y order by c.price
+                select c from Contract c where c.year = :y order by c.price desc 
                 """;
         TypedQuery<Contract> typedQuery = em.createQuery(hql, this.getEntityClass())
-                .setParameter(Contract.YEAR,year);
+                .setParameter("y",year);
 
         return typedQuery.getResultList();
     }

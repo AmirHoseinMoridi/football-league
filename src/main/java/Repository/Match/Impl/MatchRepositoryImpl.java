@@ -42,7 +42,7 @@ public class MatchRepositoryImpl
                 (select max (m.hostsGoals + m.guestsGoals) from Match m)
                 """;
         TypedQuery<Match> typedQuery = em.createQuery(hql, this.getEntityClass())
-                .setParameter(Match.YEAR,year);
+                .setParameter("y",year);
 
         return typedQuery.getSingleResult();
     }

@@ -11,11 +11,11 @@ public class RankingOperation {
     private final RankingService rankingService = new RankingServiceImpl(new RankingRepositoryImpl(JpaUtil.getEntityManager()));
 
 
-    void showScoresOfEachTeam(Year year){
+    public void showScoresOfEachTeam(Year year){
         System.out.println(rankingService.findByYear(year));
     }
 
-    void showChampionOfYear(Year year){
+    public void showChampionOfYear(Year year){
         System.out.println(rankingService.ChampionOfYear(year).getTeam());
     }
 

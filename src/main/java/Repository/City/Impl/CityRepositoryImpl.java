@@ -29,7 +29,7 @@ public class CityRepositoryImpl
                 select c from City c where c.name = :n
                 """;
         TypedQuery<City> typedQuery = em.createQuery(hql, this.getEntityClass())
-                .setParameter(City.NAME, name);
+                .setParameter("n", name);
 
         return Optional.ofNullable(typedQuery.getSingleResult());
     }

@@ -1,5 +1,6 @@
 package Entity;
 
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import lombok.*;
@@ -14,6 +15,7 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 
 @Entity
+@DiscriminatorValue("2")
 public class Player extends Person {
     public static final String TEAM = "team";
 

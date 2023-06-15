@@ -40,7 +40,7 @@ public class RankingRepositoryImpl
                 select s from Ranking s where s.year = :y
                 """;
         TypedQuery<Ranking> typedQuery = em.createQuery(hql, this.getEntityClass())
-                .setParameter(Ranking.YEAR, year);
+                .setParameter("y", year);
 
         return typedQuery.getResultList();
     }
@@ -64,7 +64,7 @@ public class RankingRepositoryImpl
                 (select max (s.totalScore) from Ranking s group by s.year)
                 """;
         TypedQuery<Ranking> typedQuery = em.createQuery(hql, this.getEntityClass())
-                .setParameter(Ranking.YEAR,year);
+                .setParameter("y",year);
 
         return typedQuery.getSingleResult();
     }

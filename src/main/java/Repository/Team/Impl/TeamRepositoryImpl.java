@@ -39,7 +39,7 @@ public class TeamRepositoryImpl
                 select t from Team t where t.city = :c
                 """;
         TypedQuery<Team> typedQuery = em.createQuery(hql, this.getEntityClass())
-                .setParameter(Team.CITY, city);
+                .setParameter("c", city);
 
         return typedQuery.getResultList();
     }

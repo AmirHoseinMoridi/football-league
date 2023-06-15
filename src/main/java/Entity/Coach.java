@@ -1,8 +1,6 @@
 package Entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -15,9 +13,10 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 
 @Entity
+@DiscriminatorValue("1")
 public class Coach extends Person {
     public static final String TEAM = "team";
 
-    @OneToOne
+    @ManyToOne
     Team team;
 }
