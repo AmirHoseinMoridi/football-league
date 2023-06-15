@@ -16,5 +16,6 @@ import lombok.experimental.FieldDefaults;
 @Entity
 @Inheritance
 public abstract class Person extends BaseEntity {
+    public static final String NAME = "name";
     String name;
 }

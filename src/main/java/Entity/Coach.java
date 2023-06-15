@@ -15,6 +15,7 @@ import lombok.experimental.FieldDefaults;
 
 @Entity
 public class Coach extends Person {
+    public static final String TEAM = "team";
 
     @OneToOne
     Team team;

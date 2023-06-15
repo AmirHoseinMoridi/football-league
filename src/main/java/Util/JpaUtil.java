@@ -10,7 +10,7 @@ public class JpaUtil {
 
     }
 
-    public static EntityManager getEm() {
+    public static EntityManager getEntityManager() {
         if (em == null) {
             em = Persistence.createEntityManagerFactory("football").createEntityManager();
         }

@@ -16,6 +16,10 @@ import lombok.experimental.FieldDefaults;
 
 @Entity
 public class Match extends BaseEntity {
+    public static final String GUEST = "guest";
+    public static final String HOST = "host";
+    public static final String GUESTS_GOALS = "guestsGoals";
+    public static final String HOSTS_GOALS = "hostsGoals";
 
     @ManyToOne
     Team guest;
