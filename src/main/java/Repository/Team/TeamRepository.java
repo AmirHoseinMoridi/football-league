@@ -1,4 +1,4 @@
-package Repository;
+package Repository.Team;
 
 import Base.Repositoy.BaseRepository;
 import Entity.City;

@@ -1,9 +1,9 @@
-package Repository.Impl;
+package Repository.Team.Impl;
 
 import Base.Repositoy.Impl.BaseRepositoryImpl;
 import Entity.City;
 import Entity.Team;
-import Repository.TeamRepository;
+import Repository.Team.TeamRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 

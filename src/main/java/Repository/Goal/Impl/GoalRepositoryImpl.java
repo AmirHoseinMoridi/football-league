@@ -1,11 +1,10 @@
-package Repository.Impl;
+package Repository.Goal.Impl;
 
 import Base.Repositoy.Impl.BaseRepositoryImpl;
-import Entity.Contract;
 import Entity.Goal;
 import Entity.Match;
 import Entity.Player;
-import Repository.GoalRepository;
+import Repository.Goal.GoalRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 

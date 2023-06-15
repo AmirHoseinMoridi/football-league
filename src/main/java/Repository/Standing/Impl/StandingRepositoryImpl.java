@@ -1,17 +1,14 @@
-package Repository.Impl;
+package Repository.Standing.Impl;
 
 import Base.Repositoy.Impl.BaseRepositoryImpl;
-import Entity.Stadium;
 import Entity.Standing;
 import Entity.Team;
-import Repository.StadiumRepository;
-import Repository.StandingRepository;
+import Repository.Standing.StandingRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 
 import java.time.Year;
 import java.util.List;
-import java.util.Optional;
 
 public class StandingRepositoryImpl
         extends BaseRepositoryImpl<Standing>

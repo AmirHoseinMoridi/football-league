@@ -1,17 +1,15 @@
-package Repository.Impl;
+package Repository.Contract.Impl;
 
 import Base.Repositoy.Impl.BaseRepositoryImpl;
-import Entity.City;
 import Entity.Contract;
 import Entity.Person;
 import Entity.Team;
-import Repository.ContractRepository;
+import Repository.Contract.ContractRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 
 import java.time.Year;
 import java.util.List;
-import java.util.Optional;
 
 public class ContractRepositoryImpl
         extends BaseRepositoryImpl<Contract>

@@ -1,4 +1,4 @@
-package Repository;
+package Repository.Contract;
 
 import Base.Repositoy.BaseRepository;
 import Entity.Contract;

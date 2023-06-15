@@ -1,12 +1,11 @@
-package Repository.Impl;
+package Repository.City.Impl;
 
 import Base.Repositoy.Impl.BaseRepositoryImpl;
 import Entity.City;
-import Repository.CityRepository;
+import Repository.City.CityRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 
-import java.util.List;
 import java.util.Optional;
 
 public class CityRepositoryImpl

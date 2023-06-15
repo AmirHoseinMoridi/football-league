@@ -1,11 +1,9 @@
-package Repository.Impl;
+package Repository.Coach.Impl;
 
 import Base.Repositoy.Impl.BaseRepositoryImpl;
-import Entity.City;
 import Entity.Coach;
-import Entity.Goal;
 import Entity.Team;
-import Repository.CoachRepository;
+import Repository.Coach.CoachRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 

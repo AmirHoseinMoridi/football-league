@@ -1,4 +1,4 @@
-package Repository;
+package Repository.Match;
 
 import Base.Repositoy.BaseRepository;
 import Entity.Match;

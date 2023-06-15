@@ -1,4 +1,4 @@
-package Repository;
+package Repository.Player;
 
 import Base.Repositoy.BaseRepository;
 import Entity.Player;

@@ -1,9 +1,8 @@
-package Repository.Impl;
+package Repository.Person.Impl;
 
 import Base.Repositoy.Impl.BaseRepositoryImpl;
-import Entity.City;
 import Entity.Person;
-import Repository.PersonRepository;
+import Repository.Person.PersonRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 

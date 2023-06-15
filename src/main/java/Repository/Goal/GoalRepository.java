@@ -1,4 +1,4 @@
-package Repository;
+package Repository.Goal;
 
 import Base.Repositoy.BaseRepository;
 import Entity.Goal;

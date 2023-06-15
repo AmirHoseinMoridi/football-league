@@ -1,4 +1,4 @@
-package Repository;
+package Repository.Coach;
 
 import Base.Repositoy.BaseRepository;
 import Entity.Coach;

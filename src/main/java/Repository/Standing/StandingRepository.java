@@ -1,4 +1,4 @@
-package Repository;
+package Repository.Standing;
 
 import Base.Repositoy.BaseRepository;
 import Entity.Standing;
