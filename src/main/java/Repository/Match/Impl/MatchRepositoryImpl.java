@@ -32,4 +32,18 @@ public class MatchRepositoryImpl
 
         return typedQuery.getResultList();
     }
+
+    @Override
+    public void addGuestsGoals(Match match) {
+        match.addGuestsGoals();
+        em.merge(match);
+    }
+
+    @Override
+    public void addHostsGoals(Match match) {
+        match.addHostsGoals();
+        em.merge(match);
+    }
+
+
 }

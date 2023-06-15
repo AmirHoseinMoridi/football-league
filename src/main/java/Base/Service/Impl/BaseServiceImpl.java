@@ -3,7 +3,7 @@ package Base.Service.Impl;
 import Base.Entity.BaseEntity;
 import Base.Repositoy.BaseRepository;
 import Base.Service.BaseService;
-import Util.JpaUtil;
+import Util.config.JpaUtil;
 import jakarta.persistence.EntityTransaction;
 
 

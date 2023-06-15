@@ -20,7 +20,7 @@ public interface ContractService
 
     List<Contract> findByPerson(Person person, Year year);
 
-    Contract findHigherPrice();
+    List<Contract> findHigherPrice();
 
-    Contract findHigherPrice(Year year);
+    List<Contract> findHigherPrice(Year year);
 }

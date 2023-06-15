@@ -81,24 +81,27 @@ public class ContractRepositoryImpl
         return typedQuery.getResultList();
     }
 
+
+
     @Override
-    public Contract findHigherPrice() {
+    public List<Contract> findHigherPrice() {
+        //
         String hql = """
-                select c from Contract c where c.price = (select max (c.price) from Contract c)
+                select c from Contract c order by c.price
                 """;
         TypedQuery<Contract> typedQuery = em.createQuery(hql, this.getEntityClass());
 
-        return typedQuery.getSingleResult();
+        return typedQuery.getResultList();
     }
 
     @Override
-    public Contract findHigherPrice(Year year) {
+    public List<Contract> findHigherPrice(Year year) {
         String hql = """
-                select c from Contract c where c.year = :y and c.price = (select max (c.price) from Contract c)
+                select c from Contract c where c.year = :y order by c.price
                 """;
         TypedQuery<Contract> typedQuery = em.createQuery(hql, this.getEntityClass())
-                .setParameter(Contract.YEAR, year);
+                .setParameter(Contract.YEAR,year);
 
-        return typedQuery.getSingleResult();
+        return typedQuery.getResultList();
     }
 }

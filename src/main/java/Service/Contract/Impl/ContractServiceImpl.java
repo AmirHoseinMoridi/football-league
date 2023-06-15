@@ -5,7 +5,6 @@ import Entity.Contract;
 import Entity.Person;
 import Entity.Team;
 import Repository.Contract.ContractRepository;
-import Service.Coach.CoachService;
 import Service.Contract.ContractService;
 
 import java.time.Year;
@@ -45,12 +44,12 @@ public class ContractServiceImpl
     }
 
     @Override
-    public Contract findHigherPrice() {
+    public List<Contract> findHigherPrice() {
         return repository.findHigherPrice();
     }
 
     @Override
-    public Contract findHigherPrice(Year year) {
+    public List<Contract> findHigherPrice(Year year) {
         return repository.findHigherPrice(year);
     }
 }

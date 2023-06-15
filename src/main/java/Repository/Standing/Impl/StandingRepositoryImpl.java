@@ -9,6 +9,7 @@ import jakarta.persistence.TypedQuery;
 
 import java.time.Year;
 import java.util.List;
+import java.util.Optional;
 
 public class StandingRepositoryImpl
         extends BaseRepositoryImpl<Standing>
@@ -42,5 +43,23 @@ public class StandingRepositoryImpl
                 .setParameter(Standing.YEAR, year);
 
         return typedQuery.getResultList();
+    }
+
+    @Override
+    public Optional<Standing> findByTeamAndYear(Team team, Year year) {
+        String hql = """
+                select s from Standing s where s.team = :t and s.year = :y
+                """;
+        TypedQuery<Standing> typedQuery = em.createQuery(hql, this.getEntityClass())
+                .setParameter(Standing.TEAM, year)
+                .setParameter(Standing.YEAR,year);
+
+        return Optional.ofNullable(typedQuery.getSingleResult()) ;
+    }
+
+    @Override
+    public void addTotalScore(Standing standing, int score) {
+        standing.addTotalScore(score);
+        em.merge(standing);
     }
 }

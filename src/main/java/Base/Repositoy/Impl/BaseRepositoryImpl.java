@@ -2,7 +2,6 @@ package Base.Repositoy.Impl;
 
 import Base.Entity.BaseEntity;
 import Base.Repositoy.BaseRepository;
-import Util.JpaUtil;
 import jakarta.persistence.EntityManager;
 
 import java.util.List;

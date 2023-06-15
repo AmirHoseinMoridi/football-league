@@ -20,4 +20,19 @@ public class MatchServiceImpl
     public List<Match> findByTeam(Team team) {
         return repository.findByTeam(team);
     }
+
+    @Override
+    public void addGuestsGoals(Match match) {
+        match.addGuestsGoals();
+        transaction.begin();
+        repository.addGuestsGoals(match);
+        transaction.commit();
+    }
+
+    @Override
+    public void addHostsGoals(Match match) {
+        transaction.begin();
+        repository.addHostsGoals(match);
+        transaction.commit();
+    }
 }

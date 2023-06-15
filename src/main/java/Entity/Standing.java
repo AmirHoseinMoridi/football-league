@@ -31,7 +31,11 @@ public class Standing extends BaseEntity {
     @Column(nullable = false)
     Year year;
 
-    @Column(nullable = false)
-    int totalScore;
+
+    int totalScore = 0;
+
+    public void addTotalScore(int score){
+        totalScore += score;
+    }
 
 }
