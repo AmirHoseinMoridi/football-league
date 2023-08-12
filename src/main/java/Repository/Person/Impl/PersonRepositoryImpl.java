@@ -4,29 +4,25 @@ import Base.Repositoy.Impl.BaseRepositoryImpl;
 import Entity.Person;
 import Repository.Person.PersonRepository;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.TypedQuery;
 
 import java.util.Optional;
 
-public class PersonRepositoryImpl
-        extends BaseRepositoryImpl<Person>
-        implements PersonRepository {
+public abstract class PersonRepositoryImpl<P extends Person>
+        extends BaseRepositoryImpl<P>
+        implements PersonRepository<P> {
     public PersonRepositoryImpl(EntityManager em) {
         super(em);
     }
 
     @Override
-    public Class<Person> getEntityClass() {
-        return Person.class;
-    }
+    public Optional<P> findByName(String name) {
+        String jpql = "select p from" + getEntityClass().getSimpleName() + " p where p.name = :name";
 
-    @Override
-    public Optional<Person> findByName(String name) {
-        String jpql = """
-                select p from Person p where p.name = :n
-                """;
-        TypedQuery<Person> typedQuery = em.createQuery(jpql, this.getEntityClass()).setParameter(Person.NAME, name);
 
-        return Optional.ofNullable(typedQuery.getSingleResult());
+        return Optional.ofNullable(
+                em.createQuery(jpql, getEntityClass())
+                        .setParameter("name", name)
+                        .getSingleResult()
+        );
     }
 }

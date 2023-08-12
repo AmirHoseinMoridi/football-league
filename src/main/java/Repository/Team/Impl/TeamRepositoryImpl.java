@@ -25,10 +25,10 @@ public class TeamRepositoryImpl
     @Override
     public Optional<Team> findByName(String name) {
         String hql = """
-                select t from Team t where t.name = :n
+                select t from Team t where t.name = :name
                 """;
         TypedQuery<Team> typedQuery = em.createQuery(hql, this.getEntityClass())
-                .setParameter(Team.NAME, name);
+                .setParameter("name", name);
 
         return Optional.ofNullable(typedQuery.getSingleResult());
     }
@@ -36,10 +36,10 @@ public class TeamRepositoryImpl
     @Override
     public List<Team> findByCity(City city) {
         String hql = """
-                select t from Team t where t.city = :c
+                select t from Team t where t.city = :city
                 """;
         TypedQuery<Team> typedQuery = em.createQuery(hql, this.getEntityClass())
-                .setParameter("c", city);
+                .setParameter("city", city);
 
         return typedQuery.getResultList();
     }

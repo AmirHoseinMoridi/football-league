@@ -26,10 +26,10 @@ public class StadiumRepositoryImpl
     public Optional<Stadium> findByName(String name) {
 
         String hql = """
-                select s from Stadium s where s.name = :n
+                select s from Stadium s where s.name = :name
                 """;
         TypedQuery<Stadium> typedQuery = em.createQuery(hql, this.getEntityClass())
-                .setParameter(Stadium.NAME, name);
+                .setParameter("name", name);
 
         return Optional.ofNullable(typedQuery.getSingleResult());
     }
@@ -37,10 +37,10 @@ public class StadiumRepositoryImpl
     @Override
     public List<Stadium> findByCity(City city) {
         String hql = """
-                select s from Stadium s where s.city = :c
+                select s from Stadium s where s.city = :city
                 """;
         TypedQuery<Stadium> typedQuery = em.createQuery(hql, this.getEntityClass())
-                .setParameter(Stadium.CITY, city);
+                .setParameter("city", city);
 
         return typedQuery.getResultList();
     }

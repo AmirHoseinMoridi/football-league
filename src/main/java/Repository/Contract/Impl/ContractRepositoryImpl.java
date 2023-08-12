@@ -27,10 +27,10 @@ public class ContractRepositoryImpl
     @Override
     public List<Contract> findByYear(Year year) {
         String hql = """
-                select c from Contract c where c.year = :y
+                select c from Contract c where c.year = :year
                 """;
         TypedQuery<Contract> typedQuery = em.createQuery(hql, this.getEntityClass())
-                .setParameter(Contract.YEAR, year);
+                .setParameter("year", year);
 
         return typedQuery.getResultList();
     }
@@ -38,10 +38,10 @@ public class ContractRepositoryImpl
     @Override
     public List<Contract> findByTeam(Team team) {
         String hql = """
-                select c from Contract c where c.team = :t
+                select c from Contract c where c.team = :team
                 """;
         TypedQuery<Contract> typedQuery = em.createQuery(hql, this.getEntityClass())
-                .setParameter(Contract.TEAM, team);
+                .setParameter("team", team);
 
         return typedQuery.getResultList();
     }
@@ -49,11 +49,11 @@ public class ContractRepositoryImpl
     @Override
     public List<Contract> findByTeam(Team team, Year year) {
         String hql = """
-                select c from Contract c where c.team = :t and c.year = :y
+                select c from Contract c where c.team = :team and c.year = :year
                 """;
         TypedQuery<Contract> typedQuery = em.createQuery(hql, this.getEntityClass())
-                .setParameter(Contract.TEAM, team)
-                .setParameter(Contract.YEAR, year);
+                .setParameter("team", team)
+                .setParameter("year", year);
 
         return typedQuery.getResultList();
     }
@@ -61,10 +61,10 @@ public class ContractRepositoryImpl
     @Override
     public List<Contract> findByPerson(Person person) {
         String hql = """
-                select c from Contract c where c.person = :p
+                select c from Contract c where c.person = :person
                 """;
         TypedQuery<Contract> typedQuery = em.createQuery(hql, this.getEntityClass())
-                .setParameter(Contract.PERSON, person);
+                .setParameter("person", person);
 
         return typedQuery.getResultList();
     }
@@ -72,11 +72,11 @@ public class ContractRepositoryImpl
     @Override
     public List<Contract> findByPerson(Person person, Year year) {
         String hql = """
-                select c from Contract c where c.person = :p and c.year = :y
+                select c from Contract c where c.person = :person and c.year = :year
                 """;
         TypedQuery<Contract> typedQuery = em.createQuery(hql, this.getEntityClass())
-                .setParameter(Contract.PERSON, person)
-                .setParameter(Contract.YEAR, year);
+                .setParameter("person", person)
+                .setParameter("year", year);
 
         return typedQuery.getResultList();
     }
@@ -87,7 +87,7 @@ public class ContractRepositoryImpl
     public List<Contract> findHigherPrice() {
         //
         String hql = """
-                select c from Contract c order by c.price desc 
+                select c from Contract c order by c.price desc
                 """;
         TypedQuery<Contract> typedQuery = em.createQuery(hql, this.getEntityClass());
 
@@ -97,10 +97,10 @@ public class ContractRepositoryImpl
     @Override
     public List<Contract> findHigherPrice(Year year) {
         String hql = """
-                select c from Contract c where c.year = :y order by c.price desc 
+                select c from Contract c where c.year = :year order by c.price desc
                 """;
         TypedQuery<Contract> typedQuery = em.createQuery(hql, this.getEntityClass())
-                .setParameter("y",year);
+                .setParameter("year",year);
 
         return typedQuery.getResultList();
     }

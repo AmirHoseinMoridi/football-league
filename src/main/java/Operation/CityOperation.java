@@ -10,7 +10,6 @@ import Service.Team.TeamService;
 import Util.config.JpaUtil;
 
 import java.util.List;
-import java.util.Optional;
 
 public class CityOperation {
     private final CityService cityService = new CityServiceImpl(new CityRepositoryImpl(JpaUtil.getEntityManager()));

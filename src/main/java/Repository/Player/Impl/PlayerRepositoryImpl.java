@@ -3,6 +3,7 @@ package Repository.Player.Impl;
 import Base.Repositoy.Impl.BaseRepositoryImpl;
 import Entity.Player;
 import Entity.Team;
+import Repository.Person.Impl.PersonRepositoryImpl;
 import Repository.Player.PlayerRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
@@ -10,7 +11,7 @@ import jakarta.persistence.TypedQuery;
 import java.util.List;
 
 public class PlayerRepositoryImpl
-        extends BaseRepositoryImpl<Player>
+        extends PersonRepositoryImpl<Player>
         implements PlayerRepository {
     public PlayerRepositoryImpl(EntityManager em) {
         super(em);
@@ -24,10 +25,10 @@ public class PlayerRepositoryImpl
     @Override
     public List<Player> findByTeam(Team team) {
         String hql = """
-                select p from Player p where p.team = :t
+                select p from Player p where p.team = :team
                 """;
         TypedQuery<Player> typedQuery = em.createQuery(hql, this.getEntityClass())
-                .setParameter(Player.TEAM, team);
+                .setParameter("team", team);
 
         return typedQuery.getResultList();
     }

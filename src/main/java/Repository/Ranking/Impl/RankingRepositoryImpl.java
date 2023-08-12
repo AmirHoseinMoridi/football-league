@@ -26,10 +26,10 @@ public class RankingRepositoryImpl
     @Override
     public List<Ranking> findByTeam(Team team) {
         String hql = """
-                select s from Ranking s where s.team = :t
+                select s from Ranking s where s.team = :team
                 """;
         TypedQuery<Ranking> typedQuery = em.createQuery(hql, this.getEntityClass())
-                .setParameter(Ranking.TEAM, team);
+                .setParameter("team", team);
 
         return typedQuery.getResultList();
     }
@@ -37,10 +37,10 @@ public class RankingRepositoryImpl
     @Override
     public List<Ranking> findByYear(Year year) {
         String hql = """
-                select s from Ranking s where s.year = :y
+                select s from Ranking s where s.year = :year
                 """;
         TypedQuery<Ranking> typedQuery = em.createQuery(hql, this.getEntityClass())
-                .setParameter("y", year);
+                .setParameter("year", year);
 
         return typedQuery.getResultList();
     }
@@ -48,11 +48,11 @@ public class RankingRepositoryImpl
     @Override
     public Optional<Ranking> findByTeamAndYear(Team team, Year year) {
         String hql = """
-                select s from Ranking s where s.team = :t and s.year = :y
+                select s from Ranking s where s.team = :team and s.year = :year
                 """;
         TypedQuery<Ranking> typedQuery = em.createQuery(hql, this.getEntityClass())
-                .setParameter(Ranking.TEAM, year)
-                .setParameter(Ranking.YEAR,year);
+                .setParameter("Ranking.TEAM", year)
+                .setParameter("year",year);
 
         return Optional.ofNullable(typedQuery.getSingleResult()) ;
     }
@@ -60,11 +60,11 @@ public class RankingRepositoryImpl
     @Override
     public Ranking ChampionOfYear(Year year) {
         String hql = """
-                select s from Ranking s where s.year = :y and s.totalScore = 
+                select s from Ranking s where s.year = :year and s.totalScore =
                 (select max (s.totalScore) from Ranking s group by s.year)
                 """;
         TypedQuery<Ranking> typedQuery = em.createQuery(hql, this.getEntityClass())
-                .setParameter("y",year);
+                .setParameter("year",year);
 
         return typedQuery.getSingleResult();
     }

@@ -26,10 +26,10 @@ public class GoalRepositoryImpl
     @Override
     public List<Goal> findByPlayer(Player player) {
         String hql = """
-                select g from Goal g where g.player = :p
+                select g from Goal g where g.player = :player
                 """;
         TypedQuery<Goal> typedQuery = em.createQuery(hql, this.getEntityClass())
-                .setParameter(Goal.PLAYER, player);
+                .setParameter("player", player);
 
         return typedQuery.getResultList();
     }
@@ -37,11 +37,11 @@ public class GoalRepositoryImpl
     @Override
     public List<Goal> findByPlayerInMatch(Player player, Match match) {
         String hql = """
-                select g from Goal g where g.player = :p and g.match = :m
+                select g from Goal g where g.player = :player and g.match = :match
                 """;
         TypedQuery<Goal> typedQuery = em.createQuery(hql, this.getEntityClass())
-                .setParameter(Goal.PLAYER, player)
-                .setParameter(Goal.MATCH, match);
+                .setParameter("player", player)
+                .setParameter("match", match);
 
         return typedQuery.getResultList();
     }
@@ -49,10 +49,10 @@ public class GoalRepositoryImpl
     @Override
     public List<Goal> findByMatch(Match match) {
         String hql = """
-                select g from Goal g where g.match = :m
+                select g from Goal g where g.match = :match
                 """;
         TypedQuery<Goal> typedQuery = em.createQuery(hql, this.getEntityClass())
-                .setParameter(Goal.MATCH, match);
+                .setParameter("match", match);
 
         return typedQuery.getResultList();
     }

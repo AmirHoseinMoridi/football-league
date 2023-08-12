@@ -19,9 +19,7 @@ import java.time.Year;
 
 @Entity
 public class Ranking extends BaseEntity {
-    public static final String TEAM = "team";
-    public static final String YEAR = "year";
-    public static final String TOTAL_SCORE = "totalScore";
+
 
 
     @ManyToOne

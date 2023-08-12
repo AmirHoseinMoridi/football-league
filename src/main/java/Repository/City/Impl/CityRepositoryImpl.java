@@ -26,10 +26,10 @@ public class CityRepositoryImpl
     public Optional<City> findByName(String name) {
 
         String hql = """
-                select c from City c where c.name = :n
+                select c from City c where c.name = :name
                 """;
         TypedQuery<City> typedQuery = em.createQuery(hql, this.getEntityClass())
-                .setParameter("n", name);
+                .setParameter("name", name);
 
         return Optional.ofNullable(typedQuery.getSingleResult());
     }

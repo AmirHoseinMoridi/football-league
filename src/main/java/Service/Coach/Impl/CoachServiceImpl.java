@@ -7,9 +7,10 @@ import Repository.City.CityRepository;
 import Repository.Coach.CoachRepository;
 import Service.City.CityService;
 import Service.Coach.CoachService;
+import Service.Person.Impl.PersonServiceImpl;
 
 public class CoachServiceImpl
-        extends BaseServiceImpl<Coach, CoachRepository>
+        extends PersonServiceImpl<Coach,CoachRepository>
         implements CoachService {
 
 

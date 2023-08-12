@@ -5,8 +5,8 @@ import Entity.Person;
 
 import java.util.Optional;
 
-public interface PersonService
-        extends BaseService<Person> {
-    Optional<Person> findByName(String name);
+public interface PersonService<P extends Person>
+        extends BaseService<P> {
+    Optional<P> findByName(String name);
 
 }

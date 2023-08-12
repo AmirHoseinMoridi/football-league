@@ -19,10 +19,7 @@ import java.time.Year;
 
 @Entity
 public class Contract extends BaseEntity {
-    public static final String PRICE = "price";
-    public static final String YEAR = "year";
-    public static final String TEAM = "team";
-    public static final String PERSON = "person";
+
 
     @Column(nullable = false)
     Double price;

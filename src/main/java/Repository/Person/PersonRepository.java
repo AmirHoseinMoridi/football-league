@@ -6,8 +6,6 @@ import Entity.Person;
 
 import java.util.Optional;
 
-public interface PersonRepository extends BaseRepository<Person> {
-    Optional<Person> findByName(String name);
-
-
+public interface PersonRepository<P extends Person> extends BaseRepository<P> {
+    Optional<P> findByName(String name);
 }

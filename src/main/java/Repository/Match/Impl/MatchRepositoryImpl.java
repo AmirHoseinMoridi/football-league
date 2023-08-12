@@ -25,11 +25,11 @@ public class MatchRepositoryImpl
     @Override
     public List<Match> findByTeam(Team team) {
         String hql = """
-                select m from Match m where m.guest = :t or m.host = :t
+                select m from Match m where m.guest = :team or m.host = :team
                 """;
         TypedQuery<Match> typedQuery = em.createQuery(hql, this.getEntityClass())
-                .setParameter(Match.GUEST, team)
-                .setParameter(Match.HOST, team);
+                .setParameter("team", team)
+                .setParameter("team", team);
 
         return typedQuery.getResultList();
     }
@@ -37,12 +37,12 @@ public class MatchRepositoryImpl
     @Override
     public Match findMustGoalsInDerby(Year year) {
         String hql = """
-                select m from Match m where m.year = :y 
+                select m from Match m where m.year = :year
                 and m.guest.city = m.host.city and (m.guestsGoals + m.hostsGoals) =
                 (select max (m.hostsGoals + m.guestsGoals) from Match m)
                 """;
         TypedQuery<Match> typedQuery = em.createQuery(hql, this.getEntityClass())
-                .setParameter("y",year);
+                .setParameter("year",year);
 
         return typedQuery.getSingleResult();
     }

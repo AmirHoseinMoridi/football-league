@@ -1,12 +1,18 @@
 package Operation;
 
 import Entity.*;
+import Repository.Coach.Impl.CoachRepositoryImpl;
 import Repository.Contract.Impl.ContractRepositoryImpl;
 import Repository.Person.Impl.PersonRepositoryImpl;
+import Repository.Player.Impl.PlayerRepositoryImpl;
+import Service.Coach.CoachService;
+import Service.Coach.Impl.CoachServiceImpl;
 import Service.Contract.ContractService;
 import Service.Contract.Impl.ContractServiceImpl;
 import Service.Person.Impl.PersonServiceImpl;
 import Service.Person.PersonService;
+import Service.Player.Impl.PlayerServiceImpl;
+import Service.Player.PlayerService;
 import Util.config.JpaUtil;
 
 import java.time.Year;
@@ -20,8 +26,11 @@ public class ContractOperation {
     private final ContractService contractService = new ContractServiceImpl(
             new ContractRepositoryImpl(JpaUtil.getEntityManager()));
 
-    private final PersonService personService = new PersonServiceImpl(
-            new PersonRepositoryImpl(JpaUtil.getEntityManager()));
+    private final CoachService coachService = new CoachServiceImpl(
+            new CoachRepositoryImpl(JpaUtil.getEntityManager()));
+
+    private final PlayerService playerService = new PlayerServiceImpl(
+            new PlayerRepositoryImpl(JpaUtil.getEntityManager()));
 
     public void add(Double price, Year year, Team team, Person person) {
         Contract contract = new Contract();
@@ -34,14 +43,14 @@ public class ContractOperation {
             contractService.save(contract);
             if (Objects.equals(year, Year.now())) {
                 coach.setTeam(team);
-                personService.update(coach);
+                coachService.update(coach);
             }
 
         } else if (person instanceof Player player) {
             contract.setPerson(player);
             if (Objects.equals(year, Year.now())) {
                 player.setTeam(team);
-                personService.update(player);
+                playerService.update(player);
             }
         } else {
             System.out.println("this person is not exist");
@@ -75,10 +84,6 @@ public class ContractOperation {
         Contract contract = firstPlayerInList(contracts);
         System.out.println("name : " + contract.getPerson().getName() + " price : " + contract.getPrice());
     }
-
-
-
-
 
 
     private static Contract firstCoachInList(List<Contract> contracts) {

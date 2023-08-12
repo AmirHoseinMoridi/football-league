@@ -17,9 +17,6 @@ import lombok.experimental.FieldDefaults;
 
 @Entity
 public class Stadium extends BaseEntity {
-    public static final String NAME = "name";
-    public static final String CAPACITY = "capacity";
-    public static final String CITY = "city";
 
     @Column(nullable = false)
     String name;

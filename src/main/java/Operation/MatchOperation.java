@@ -60,14 +60,13 @@ public class MatchOperation {
     }
 
 
-    private static Ranking addScoreToStanding(Team team , Year year, int score){
+    private static void addScoreToStanding(Team team , Year year, int score){
         Ranking ranking = new Ranking();
         Optional<Ranking> optionalStanding = RANKING_SERVICE.findByTeamAndYear(team, year);
         if (optionalStanding.isPresent()){
              ranking = optionalStanding.get();
             ranking.addTotalScore(score);
         }
-        return ranking;
     }
 
 

@@ -15,7 +15,6 @@ import lombok.experimental.FieldDefaults;
 @Entity
 @DiscriminatorValue("1")
 public class Coach extends Person {
-    public static final String TEAM = "team";
 
     @ManyToOne
     Team team;

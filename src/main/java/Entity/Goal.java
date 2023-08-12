@@ -17,8 +17,7 @@ import lombok.experimental.FieldDefaults;
 
 @Entity
 public class Goal extends BaseEntity {
-    public static final String PLAYER = "player";
-    public static final String MATCH = "match";
+
 
     @ManyToOne
     Player player;

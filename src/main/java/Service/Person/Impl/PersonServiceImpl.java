@@ -7,15 +7,15 @@ import Service.Person.PersonService;
 
 import java.util.Optional;
 
-public class PersonServiceImpl
-        extends BaseServiceImpl<Person, PersonRepository>
-        implements PersonService {
-    public PersonServiceImpl(PersonRepository repository) {
+public class PersonServiceImpl<P extends Person , R extends PersonRepository<P>>
+        extends BaseServiceImpl<P,R >
+        implements PersonService<P> {
+    public PersonServiceImpl(R repository) {
         super(repository);
     }
 
     @Override
-    public Optional<Person> findByName(String name) {
+    public Optional<P> findByName(String name) {
         try {
             return repository.findByName(name);
         }catch (Exception e){

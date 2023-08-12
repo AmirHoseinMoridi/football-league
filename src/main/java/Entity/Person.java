@@ -18,7 +18,7 @@ import lombok.experimental.FieldDefaults;
         discriminatorType = DiscriminatorType.INTEGER )
 
 public abstract class Person extends BaseEntity {
-    public static final String NAME = "name";
+
 
     @Column(nullable = false)
     String name;

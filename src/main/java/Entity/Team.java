@@ -18,8 +18,6 @@ import lombok.experimental.FieldDefaults;
 
 @Entity
 public class Team extends BaseEntity {
-    public static final String NAME = "name";
-    public static final String CITY = "city";
 
     @Column(nullable = false)
     String name;

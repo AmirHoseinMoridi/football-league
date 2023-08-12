@@ -1,12 +1,8 @@
 package Operation;
 
-import Entity.City;
+
 import Entity.Coach;
-import Entity.Person;
-import Repository.City.Impl.CityRepositoryImpl;
 import Repository.Coach.Impl.CoachRepositoryImpl;
-import Service.City.CityService;
-import Service.City.Impl.CityServiceImpl;
 import Service.Coach.CoachService;
 import Service.Coach.Impl.CoachServiceImpl;
 import Util.config.JpaUtil;

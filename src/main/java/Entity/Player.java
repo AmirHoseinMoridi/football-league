@@ -17,7 +17,6 @@ import lombok.experimental.FieldDefaults;
 @Entity
 @DiscriminatorValue("2")
 public class Player extends Person {
-    public static final String TEAM = "team";
 
 
     @ManyToOne

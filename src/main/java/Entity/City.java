@@ -15,7 +15,6 @@ import lombok.experimental.FieldDefaults;
 
 @Entity
 public class City extends BaseEntity {
-    public static final String NAME = "name";
 
 
     @Column(nullable = false)
